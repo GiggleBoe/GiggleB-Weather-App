@@ -63,6 +63,9 @@ h1 {
   font-weight: 300;
   color: rgb(74, 74, 119);
 }
+#coder {
+  color: #1a1831;
+}
 
 .logo-me {
   font-family: "Arima", cursive;
@@ -87,13 +90,13 @@ h1 {
 #celsius {
   position: relative;
   right: -4px;
-  background-color: none;
+  background-color: #b4acbc;
   color: #0d6efd;
 }
 #fahrenheit {
   position: relative;
   right: 14px;
-  background-color: none;
+  background-color: #b4acbc;
   color: #0d6efd;
 }
 #units-separation {
