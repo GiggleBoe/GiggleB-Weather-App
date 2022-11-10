@@ -52,6 +52,69 @@
               <div class="col-sm">Tokio</div>
             </div>
           </header>
+
+          <hr />
+          <form>
+            <div class="row">
+              <div class="data col-sm-6">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="city-input"
+                      aria-describedby="emailHelp"
+                      placeholder="Munich, Bavaria 🔎"
+                    />
+                  </div>
+                  <div class="col-sm-4 search-button" style="width: 30%">
+                    <button type="submit" class="btn btn-primary" id="button">
+                      search
+                    </button>
+                  </div>
+                  <div class="col-sm-6 current">
+                    <h2 id="city-choice">Munich</h2>
+
+                    <div class="row current-day-time">
+                      <div class="col-sm-12" id="day-now">today</div>
+                      <div class="col-sm-12" id="time-now">
+                        <span id="hours-now">10</span>:<span id="minutes-now"
+                          >10</span
+                        >
+                      </div>
+                      <div class="col-sm-12">
+                        <br />
+                      </div>
+                      <div class="col-sm-12" id="weather-descrpt">Clouds</div>
+                      <div class="col-sm-12" id="humidity">💧</div>
+                      <div class="col-sm-12" id="wind">💨</div>
+                    </div>
+                  </div>
+                  <div class="col-sm-2 pic">☁️</div>
+                  <div class="col-sm-4 temp">
+                    <span id="temp">19</span>
+                    <button type="submit" class="btn btn-primary" id="celsius">
+                      °C
+                    </button>
+                    <span id="units-separation">|</span>
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      id="fahrenheit"
+                    >
+                      °F
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <img
+                  src="images/pexels-herbst-wolken-9629218.jpg"
+                  alt="HerbstBaum"
+                />
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
