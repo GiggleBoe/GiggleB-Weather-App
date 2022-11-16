@@ -20,6 +20,10 @@ h2 {
   text-align: center;
   font-weight: bold;
 }
+.city {
+  border: 0px solid none;
+  background: none;
+}
 
 .search-button {
   text-align: right;
