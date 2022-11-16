@@ -15,14 +15,14 @@ h2 {
   max-width: 800px;
   color: #b4acbc;
 }
-.cities {
-  font-size: 14px;
-  text-align: center;
-  font-weight: bold;
-}
+
 .city {
   border: 0px solid none;
   background: none;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+  color: #b4acbc;
 }
 
 .search-button {
