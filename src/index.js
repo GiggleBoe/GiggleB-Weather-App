@@ -19,9 +19,11 @@ let date = now.getDate();
 
 function showDayNTime() {
   let dayNow = document.querySelector("#day-now");
-  dayNow.innerHTML = `${days[day]} ${date}, `;
   let minutesNow = document.querySelector("#minutes-now");
   let hoursNow = document.querySelector("#hours-now");
+
+  if (date > 9) dayNow.innerHTML = `${days[day]} ${date}`;
+  else dayNow.innerHTML = `${days[day]} 0${date}`;
 
   if (minutes > 9) minutesNow.innerHTML = `${minutes}`;
   else minutesNow.innerHTML = `0${minutes}`;
