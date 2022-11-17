@@ -1,24 +1,25 @@
 let now = new Date();
 let day = now.getDay();
 let days = [
-  `Sunday`,
-  `Monday`,
-  `Tuesday`,
-  `Wednesday`,
-  `Thursday`,
-  `Friday`,
-  `Saturday`,
-  `Sunday`,
-  `Monday`,
-  `Tuesday`,
-  `Wednesday`,
+  `Sun`,
+  `Mon`,
+  `Tue`,
+  `Wed`,
+  `Thu`,
+  `Fri`,
+  `Sat`,
+  `Sun`,
+  `Mon`,
+  `Tue`,
+  `Wed`,
 ];
 let minutes = now.getMinutes();
 let hours = now.getHours();
+let date = now.getDate();
 
 function showDayNTime() {
   let dayNow = document.querySelector("#day-now");
-  dayNow.innerHTML = `${days[day]}`;
+  dayNow.innerHTML = `${days[day]} ${date}, `;
   let minutesNow = document.querySelector("#minutes-now");
   let hoursNow = document.querySelector("#hours-now");
 
