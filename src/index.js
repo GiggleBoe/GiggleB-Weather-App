@@ -139,3 +139,24 @@ function showLatNLon(position) {
 
 navigator.geolocation.getCurrentPosition(showLatNLon);
 showLatNLon();
+
+//function showDefaultCity(event) {
+//  event.preventDefault();
+//  let defaultCity = document.querySelector(".city[*]");
+//  let chosenCity = document.querySelector("#city-choice");
+//
+//  chosenCity.innerHTML = `${defaultCity.value}`;
+//
+//  let apiKey = "0a521eaf234a3a56f45252fac3c737ad";
+//  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${chosenCity.innerHTML}&appid=${apiKey}&units=metric`;
+//
+//  axios.get(apiURL).then(showTemperature);
+//  axios.get(apiURL).then(showDescription);
+//  axios.get(apiURL).then(showHumidity);
+//  axios.get(apiURL).then(showWind);
+//}
+//
+//let DefaultCity = document.querySelector(".city[*]");
+//DefaultCity.addEventListener("click", showDefaultCity);
+//dataTransfer.addEventListener("click", showDayNTime);
+//dataTransfer.addEventListener("click", showDaysAhead);
