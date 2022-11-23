@@ -68,7 +68,7 @@
           <form>
             <div class="row">
               <div class="data col-sm-6">
-                <div class="row">
+                <div class="row details">
                   <div class="col-sm-8">
                     <input
                       type="text"
@@ -85,21 +85,6 @@
                   </div>
                   <div class="col-sm-6 current">
                     <h2 id="city-choice">Munich</h2>
-
-                    <div class="row current-day-time">
-                      <div class="col-6" id="day-now">today&nbsp;</div>
-                      <div class="col-6" id="time-now">
-                        <span id="hours-now">10</span>:<span id="minutes-now"
-                          >10</span
-                        >
-                      </div>
-                      <div class="col-sm-12">
-                        <br />
-                      </div>
-                      <div class="col-sm-12" id="weather-descrpt">Clouds</div>
-                      <div class="col-sm-12" id="humidity">💧</div>
-                      <div class="col-sm-12" id="wind">💨</div>
-                    </div>
                   </div>
                   <div class="col-sm-2 pic">☁️</div>
                   <div class="col-sm-4 temp">
@@ -116,6 +101,20 @@
                       °F
                     </button>
                   </div>
+
+                  <div class="col-sm current-day-time">
+                    <span id="day-now">today,&nbsp;</span>
+
+                    <span id="hours-now">10</span>:<span id="minutes-now"
+                      >10</span
+                    >
+                  </div>
+                  <div>
+                    <br />
+                  </div>
+                  <div class="col-sm-12" id="weather-descrpt">Clouds</div>
+                  <div class="col-sm-12" id="humidity">💧</div>
+                  <div class="col-sm-12" id="wind">💨</div>
                 </div>
               </div>
               <div class="col-sm-6">

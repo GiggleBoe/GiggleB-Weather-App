@@ -22,8 +22,8 @@ function showDayNTime() {
   let minutesNow = document.querySelector("#minutes-now");
   let hoursNow = document.querySelector("#hours-now");
 
-  if (date > 9) dayNow.innerHTML = `${days[day]} ${date}`;
-  else dayNow.innerHTML = `${days[day]} 0${date}`;
+  if (date > 9) dayNow.innerHTML = `${days[day]} ${date},`;
+  else dayNow.innerHTML = `${days[day]} 0${date},`;
 
   if (minutes > 9) minutesNow.innerHTML = `${minutes}`;
   else minutesNow.innerHTML = `0${minutes}`;

@@ -39,12 +39,8 @@ h2 {
   text-align: right;
 }
 
-.current-day-time {
+.details {
   font-size: 14px;
-}
-#time-now {
-  position: relative;
-  right: 32px;
 }
 
 img {
