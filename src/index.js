@@ -1,23 +1,42 @@
 let now = new Date();
 let day = now.getDay();
 let days = [
-  `Sun`,
-  `Mon`,
-  `Tue`,
-  `Wed`,
-  `Thu`,
-  `Fri`,
-  `Sat`,
-  `Sun`,
-  `Mon`,
-  `Tue`,
-  `Wed`,
+  `Sunday`,
+  `Monday`,
+  `Tuesday`,
+  `Wednesday`,
+  `Thursday`,
+  `Friday`,
+  `Saturday`,
+  `Sunday`,
+  `Monday`,
+  `Tuesday`,
+  `Wednesday`,
 ];
 let minutes = now.getMinutes();
 let hours = now.getHours();
 let date = now.getDate();
 
-function showDayNTime() {
+function showDayNTime(response) {
+  let now = new Date(response.data.dt * 1000);
+  let day = now.getDay();
+  let days = [
+    `Sun`,
+    `Mon`,
+    `Tue`,
+    `Wed`,
+    `Thu`,
+    `Fri`,
+    `Sat`,
+    `Sun`,
+    `Mon`,
+    `Tue`,
+    `Wed`,
+  ];
+  let minutes = now.getMinutes();
+  let hours = now.getHours();
+  let date = now.getDate();
+
   let dayNow = document.querySelector("#day-now");
   let minutesNow = document.querySelector("#minutes-now");
   let hoursNow = document.querySelector("#hours-now");
@@ -31,7 +50,22 @@ function showDayNTime() {
   if (hours < 10) hoursNow.innerHTML = `0${hours}`;
   else hoursNow.innerHTML = `${hours}`;
 }
-showDayNTime();
+
+//function formatDayNTime() {
+//  let dayNow = document.querySelector("#day-now");
+//  let minutesNow = document.querySelector("#minutes-now");
+//  let hoursNow = document.querySelector("#hours-now");
+
+//  if (date > 9) dayNow.innerHTML = `${days[day]} ${date},`;
+//  else dayNow.innerHTML = `${days[day]} 0${date},`;
+
+//  if (minutes > 9) minutesNow.innerHTML = `${minutes}`;
+//  else minutesNow.innerHTML = `0${minutes}`;
+
+//  if (hours < 10) hoursNow.innerHTML = `0${hours}`;
+//  else hoursNow.innerHTML = `${hours}`;
+//}
+//formatDayNTime();
 
 function showDaysAhead() {
   let dayTomorrow = document.querySelector("#day-of-tomorrow");
@@ -63,6 +97,7 @@ function showCityName(event) {
   axios.get(apiURL).then(showDescription);
   axios.get(apiURL).then(showHumidity);
   axios.get(apiURL).then(showWind);
+  axios.get(apiURL).then(showDayNTime);
 }
 
 let dataTransfer = document.querySelector("#button");
@@ -135,6 +170,7 @@ function showLatNLon(position) {
   axios.get(apiURL).then(showDescription);
   axios.get(apiURL).then(showHumidity);
   axios.get(apiURL).then(showWind);
+  axios.get(apiURL).then(showDayNTime);
 }
 
 navigator.geolocation.getCurrentPosition(showLatNLon);
@@ -154,6 +190,7 @@ function showDefaultCity(event) {
   axios.get(apiURL).then(showDescription);
   axios.get(apiURL).then(showHumidity);
   axios.get(apiURL).then(showWind);
+  axios.get(apiURL).then(showDayNTime);
 }
 
 //let DefaultCity = document.querySelector(".city[*]");
