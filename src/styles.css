@@ -70,6 +70,8 @@ h1 {
   text-align: right;
   font-weight: 300;
   color: rgb(74, 74, 119);
+  position: relative;
+  top: 4px;
 }
 #coder {
   color: #1a1831;
