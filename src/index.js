@@ -51,22 +51,6 @@ function showDayNTime(response) {
   else hoursNow.innerHTML = `${hours}`;
 }
 
-//function formatDayNTime() {
-//  let dayNow = document.querySelector("#day-now");
-//  let minutesNow = document.querySelector("#minutes-now");
-//  let hoursNow = document.querySelector("#hours-now");
-
-//  if (date > 9) dayNow.innerHTML = `${days[day]} ${date},`;
-//  else dayNow.innerHTML = `${days[day]} 0${date},`;
-
-//  if (minutes > 9) minutesNow.innerHTML = `${minutes}`;
-//  else minutesNow.innerHTML = `0${minutes}`;
-
-//  if (hours < 10) hoursNow.innerHTML = `0${hours}`;
-//  else hoursNow.innerHTML = `${hours}`;
-//}
-//formatDayNTime();
-
 function showDaysAhead() {
   let dayTomorrow = document.querySelector("#day-of-tomorrow");
   dayTomorrow.innerHTML = `${days[day + 1]}`;
@@ -107,7 +91,7 @@ dataTransfer.addEventListener("click", showCityName);
 //dataTransfer.addEventListener("click", showDaysAhead);
 
 function showTemperature(response) {
-  let realTemp = `${Math.round(response.data.main.temp)}`;
+  realTemp = `${Math.round(response.data.main.temp)}`;
 
   let temp = document.querySelector("#temp");
   temp.innerHTML = realTemp;
@@ -150,15 +134,10 @@ function showIcon(response) {
   icon.setAttribute("alt", `${realAltText}`);
 }
 
-//function showTemperatureC(response) {
-//  let realTemp = `${Math.round(response.data.main.temp)}`;
-
-//  let temp = document.querySelector("#temp");
-//  temp.innerHTML = realTemp;
-//}
-
 function showTemperatureC(event) {
   event.preventDefault();
+  let tempValueC = document.querySelector("#temp");
+  tempValueC.innerHTML = realTemp;
 }
 let cValue = document.querySelector("#celsius");
 cValue.addEventListener("click", showTemperatureC);
@@ -166,12 +145,12 @@ cValue.addEventListener("click", showTemperatureC);
 function showTemperatureF(event) {
   event.preventDefault();
   let tempValueF = document.querySelector("#temp");
-
-  tempValueF.innerHTML = 66;
+  tempValueF.innerHTML = Math.round((realTemp * 9) / 5 + 32);
 }
-
 let fValue = document.querySelector("#fahrenheit");
 fValue.addEventListener("click", showTemperatureF);
+
+let realTemp = null;
 
 function showLatNLon(position) {
   let lat = `${position.coords.latitude}`;
