@@ -98,6 +98,7 @@ function showCityName(event) {
   axios.get(apiURL).then(showHumidity);
   axios.get(apiURL).then(showWind);
   axios.get(apiURL).then(showDayNTime);
+  axios.get(apiURL).then(showIcon);
 }
 
 let dataTransfer = document.querySelector("#button");
@@ -134,7 +135,19 @@ function showWind(response) {
 
   let wind = document.querySelector("#wind");
   wind.innerHTML = `💨 ${realWind} km/h`;
-  console.log(response.data);
+  console.log(response.data.weather[0].icon);
+}
+
+function showIcon(response) {
+  let realIcon = `${response.data.weather[0].icon}`;
+  let icon = document.querySelector(".icon");
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${realIcon}@2x.png`
+  );
+
+  let realAltText = `${response.data.weather[0].description}`;
+  icon.setAttribute("alt", `${realAltText}`);
 }
 
 //function showTemperatureC(response) {
@@ -171,6 +184,7 @@ function showLatNLon(position) {
   axios.get(apiURL).then(showHumidity);
   axios.get(apiURL).then(showWind);
   axios.get(apiURL).then(showDayNTime);
+  axios.get(apiURL).then(showIcon);
 }
 
 navigator.geolocation.getCurrentPosition(showLatNLon);
@@ -191,6 +205,7 @@ function showDefaultCity(event) {
   axios.get(apiURL).then(showHumidity);
   axios.get(apiURL).then(showWind);
   axios.get(apiURL).then(showDayNTime);
+  axios.get(apiURL).then(showIcon);
 }
 
 //let DefaultCity = document.querySelector(".city[*]");
