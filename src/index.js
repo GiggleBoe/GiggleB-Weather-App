@@ -51,20 +51,7 @@ function showDayNTime(response) {
   else hoursNow.innerHTML = `${hours}`;
 }
 
-function showDaysAhead() {
-  let dayTomorrow = document.querySelector("#day-of-tomorrow");
-  dayTomorrow.innerHTML = `${days[day + 1]}`;
-
-  let dayTomorrow2 = document.querySelector("#day-of-tomorrowN1");
-  dayTomorrow2.innerHTML = `${days[day + 2]}`;
-
-  let dayTomorrow3 = document.querySelector("#day-of-tomorrowN2");
-  dayTomorrow3.innerHTML = `${days[day + 3]}`;
-
-  let dayTomorrow4 = document.querySelector("#day-of-tomorrowN3");
-  dayTomorrow4.innerHTML = `${days[day + 4]}`;
-}
-showDaysAhead();
+//showDaysAhead();
 
 function showCityName(event) {
   event.preventDefault();
