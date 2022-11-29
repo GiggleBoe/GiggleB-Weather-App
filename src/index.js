@@ -251,3 +251,18 @@ let weather = {
 //}
 let defaultData = document.querySelector("#weather[cityName]");
 defaultData.addEventListener("click", showDefaultCity);
+
+//forecast
+function buildForecast() {
+  let duo = `<div>
+<div class="col-sm">
+              today
+              <div><img src="" alt="" /> ☁️🌧️</div>
+              <div class="weather-forecast-tmperatures">
+                <span class="max-temperature">20°</span>
+                <span class="min-temperature"> 10°</span>
+              </div>
+            </div>`;
+  duo;
+}
+buildForecast();
