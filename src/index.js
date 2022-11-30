@@ -139,7 +139,7 @@ function buildForecast(response) {
               <div class="weather-forecast-date">${formatForecastDay(
                 forecastDay.dt
               )}</div>
-              <div><img src="http://openweathermap.org/img/wn/${
+              <div><img src="https://openweathermap.org/img/wn/${
                 forecastDay.weather[0].icon
               }@2x.png" alt="${
           forecastDay.weather[0].description
