@@ -65,8 +65,6 @@ dataTransfer.addEventListener("click", showCityName);
 //dataTransfer.addEventListener("click", showDayNTime);
 //dataTransfer.addEventListener("click", showDaysAhead);
 
-buildForecast();
-
 function showTemperature(response) {
   realTemp = `${Math.round(response.data.main.temp)}`;
 
@@ -75,6 +73,8 @@ function showTemperature(response) {
 
   let chosenCity = document.querySelector("#city-choice");
   chosenCity.innerHTML = `${response.data.name}`;
+
+  getForecast(response.data.coord);
 }
 
 function showDescription(response) {
@@ -170,7 +170,7 @@ axios.get(apiURL).then(showIcon);
 //dataTransfer.addEventListener("click", showDaysAhead);
 
 //forecast
-function buildForecast() {
+function buildForecast(response) {
   let forecast = document.querySelector("#forecast");
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
 
@@ -189,5 +189,12 @@ function buildForecast() {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecast.innerHTML = forecastHTML;
-  console.log(forecastHTML);
+  console.log(response.data.daily);
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "0a521eaf234a3a56f45252fac3c737ad";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(buildForecast);
 }
