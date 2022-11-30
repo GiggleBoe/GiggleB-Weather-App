@@ -1,38 +1,26 @@
-let now = new Date();
-let day = now.getDay();
-let days = [
-  `Sunday`,
-  `Monday`,
-  `Tuesday`,
-  `Wednesday`,
-  `Thursday`,
-  `Friday`,
-  `Saturday`,
-  `Sunday`,
-  `Monday`,
-  `Tuesday`,
-  `Wednesday`,
-];
-let minutes = now.getMinutes();
-let hours = now.getHours();
-let date = now.getDate();
+//let now = new Date();
+//let day = now.getDay();
+//let days = [
+//  `Sunday`,
+//  `Monday`,
+//  `Tuesday`,
+//  `Wednesday`,
+//  `Thursday`,
+//  `Friday`,
+//  `Saturday`,
+//  `Sunday`,
+//  `Monday`,
+//  `Tuesday`,
+//  `Wednesday`,
+//];
+//let minutes = now.getMinutes();
+//let hours = now.getHours();
+//let date = now.getDate();
 
 function showDayNTime(response) {
   let now = new Date(response.data.dt * 1000);
   let day = now.getDay();
-  let days = [
-    `Sun`,
-    `Mon`,
-    `Tue`,
-    `Wed`,
-    `Thu`,
-    `Fri`,
-    `Sat`,
-    `Sun`,
-    `Mon`,
-    `Tue`,
-    `Wed`,
-  ];
+  let days = [`Sun`, `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`];
   let minutes = now.getMinutes();
   let hours = now.getHours();
   let date = now.getDate();
@@ -76,6 +64,8 @@ let dataTransfer = document.querySelector("#button");
 dataTransfer.addEventListener("click", showCityName);
 //dataTransfer.addEventListener("click", showDayNTime);
 //dataTransfer.addEventListener("click", showDaysAhead);
+
+buildForecast();
 
 function showTemperature(response) {
   realTemp = `${Math.round(response.data.main.temp)}`;
@@ -156,100 +146,48 @@ function showLatNLon(position) {
 navigator.geolocation.getCurrentPosition(showLatNLon);
 showLatNLon();
 
-function showDefaultCity(event) {
-  event.preventDefault();
-  let defaultCity = document.querySelector("#weather[cityName]");
-  let chosenCity = document.querySelector("#city-choice");
+//function showDefaultCity(event) {
+event.preventDefault();
+let defaultCity = document.querySelector("#weather[cityName]");
+let chosenCity = document.querySelector("#city-choice");
 
-  chosenCity.innerHTML = `${defaultCity.value}`;
+chosenCity.innerHTML = `${defaultCity.value}`;
 
-  let apiKey = "0a521eaf234a3a56f45252fac3c737ad";
-  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${chosenCity.innerHTML}&appid=${apiKey}&units=metric`;
+let apiKey = "0a521eaf234a3a56f45252fac3c737ad";
+let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${chosenCity.innerHTML}&appid=${apiKey}&units=metric`;
 
-  axios.get(apiURL).then(showTemperature);
-  axios.get(apiURL).then(showDescription);
-  axios.get(apiURL).then(showHumidity);
-  axios.get(apiURL).then(showWind);
-  axios.get(apiURL).then(showDayNTime);
-  axios.get(apiURL).then(showIcon);
-}
+axios.get(apiURL).then(showTemperature);
+axios.get(apiURL).then(showDescription);
+axios.get(apiURL).then(showHumidity);
+axios.get(apiURL).then(showWind);
+axios.get(apiURL).then(showDayNTime);
+axios.get(apiURL).then(showIcon);
+//}
 
 //let DefaultCity = document.querySelector(".city[*]");
 //DefaultCity.addEventListener("click", showDefaultCity);
 //dataTransfer.addEventListener("click", showDayNTime);
 //dataTransfer.addEventListener("click", showDaysAhead);
 
-let weather = {
-  London: {
-    descr: city1,
-    temep: 19.7,
-    humidity: 80,
-  },
-  Munich: {
-    descr: city2,
-    temep: 17.3,
-    humidity: 50,
-  },
-  Sofia: {
-    descr: city3,
-    temep: 30.2,
-    humidity: 20,
-  },
-  Tehran: {
-    descr: city4,
-    temep: 20.9,
-    humidity: 100,
-  },
-  Kathmandu: {
-    descr: city5,
-    temep: -5,
-    humidity: 20,
-  },
-  Bangkok: {
-    descr: city6,
-    temep: 30.2,
-    humidity: 20,
-  },
-  "Hong Kong": {
-    descr: city7,
-    temep: 20.9,
-    humidity: 100,
-  },
-  Tokyo: {
-    descr: city8,
-    temep: -5,
-    humidity: 20,
-  },
-};
-
-//if (weather[cityName] == undefined) {
-//  alert(
-//    `Sorry, we don't know the weather for this city, try going to https://www.google.com/search?q=weather+${cityName}`
-//  );
-//} else {
-//  weather[cityName].tempF = (weather[cityName].temep * 9) / 5 + 32;
-//
-//  weather[cityName].temep = Math.round(weather[cityName].temep);
-//
-//  weather[cityName].tempF = Math.round(weather[cityName].tempF);
-//  alert(
-//    `It is currently ${weather[cityName].temep}°C (${weather[cityName].tempF}°F) in ${cityName} with a humidity of ${weather[cityName].humidity}%`
-//  );
-//}
-let defaultData = document.querySelector("#weather[cityName]");
-defaultData.addEventListener("click", showDefaultCity);
-
 //forecast
 function buildForecast() {
-  let duo = `<div>
-<div class="col-sm">
-              today
+  let forecast = document.querySelector("#forecast");
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-sm">
+              <div class="weather-forecast-date">${day}</div>
               <div><img src="" alt="" /> ☁️🌧️</div>
-              <div class="weather-forecast-tmperatures">
+              <div class="weather-forecast-temperatures">
                 <span class="max-temperature">20°</span>
                 <span class="min-temperature"> 10°</span>
               </div>
-            </div>`;
-  duo;
+      </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
+  console.log(forecastHTML);
 }
-buildForecast();
